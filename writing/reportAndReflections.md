@@ -3,7 +3,11 @@
 
 Question 7.
 
-
+![5](5.png)
+This is the data from World Health Organization's data base: http://apps.who.int/gho/data/view.main.1520_41?lang=en
+The Diphtheria Reported cases by WHO region from 1980 to 2017.
+We can clearly see that for the global data in 1980, the number of reported cases is 97511. By 2017, it becomes 16435.  
+Since this is the data from World Health Organization, it is unlikely to be the incorrect data, and it make sense for vaccines to be effective on the disease during 37 years. Hence I trust the data I found.
 
 Question 8.
 
@@ -11,7 +15,7 @@ Question 8.
 
 2. The academic research groups and organizations should have more self-control to make sure they are not publishing incorrect articles for their own benefits. Besides that, they need to provide more transparency to the public or to each other, so people can check and make sure it is absolutely correct before it is commonly accepted as a fact.
 
-3. It would not fix all the damage, because there are some people may still not have chance to hear this news, so they may still believe the wrong thing. The distrust of the public medicine can not be easily fixed. Besides trying to let more people know the fact that MMR are autism are not related to each other, there isn't too much we can do, because it takes time to fix. The more important is to avoid the similar mistake happen in future. 
+3. It would not fix all the damage, because there are some people may still not have chance to hear this news, so they may still believe the wrong thing. The distrust of the public medicine can not be easily fixed. Besides trying to let more people know the fact that MMR are autism are not related to each other, there isn't too much we can do, because it takes time to fix. The more important is to avoid the similar mistake happen in future.
 
 Question 9.
 
