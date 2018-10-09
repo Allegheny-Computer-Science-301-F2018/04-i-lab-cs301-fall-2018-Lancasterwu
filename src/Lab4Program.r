@@ -28,6 +28,7 @@ ggplot(data = datc) + geom_point(mapping = aes(x = year, y = count/population)) 
 
 #Question 3.
 
+install.packages("rcompanion")
 dat_caliFocus <- filter(us_contagious_diseases, state == "California")
 dat_caliFocus$yearBlock[dat_caliFocus$year == 1950] <- "1950’s"
 dat_caliFocus$yearBlock[dat_caliFocus$year == 1960] <- "1960’s"
@@ -53,6 +54,11 @@ plotNormalHistogram(count_sqrt)
 
 ## find the data from https://github.com/cran/SCCS
 ## Name of the file: autdat
+## This data frame containing 350 rows and 5 columns. The column names are 'case' (individual identifier), 'diag' (age at autism diagnosis), 'sta' (age on the first day of the observation period), 'end' (age on last day of the observation period), 'mmr' (age at MMR vaccination).
+## import data base
+autdat <- read.delim("~/cs301F2018/labs/04-i-lab-cs301-fall-2018-Lancasterwu/autdat.txt")
+## plot the graph, we can see that dark blue points are around 1000-2000, which means age at autism diagnosis are about the similar age at MMR vaccination, but this can't prove they are related.
+ggplot(data = autdat) + geom_point(mapping = aes(x = case, y = diag, color = mmr))
 
 
 
