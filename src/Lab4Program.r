@@ -29,22 +29,21 @@ ggplot(data = datc) + geom_point(mapping = aes(x = year, y = count/population)) 
 #Question 3.
 
 ## Solution1:
-## create the object with only state == California from us_contagious_diseases
-dat_caliFocus <- filter(us_contagious_diseases, state == "California")
+dat_caliFocus <- filter(us_contagious_diseases, state == "California", 1980 > year & year > 1949)
 ## block the years besides 1950, 1960, 1970
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1950] <- "1950’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1960] <- "1960’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1970] <- "1970’s"
+dat_caliFocus$yearBlock[1960 > dat_caliFocus$year & dat_caliFocus$year > 1949] <- "1950’s"
+dat_caliFocus$yearBlock[1970 > dat_caliFocus$year & dat_caliFocus$year > 1959] <- "1960’s"
+dat_caliFocus$yearBlock[1980 > dat_caliFocus$year & dat_caliFocus$year > 1969] <- "1970’s"
 ## plot the graph, set the width to 0.5
 ggplot(data = dat_caliFocus) + geom_bar(mapping = aes(x = state,y = count^(1/2), fill = yearBlock), width = 0.5, position = "dodge", stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=-0.01))
 ## year 1970's has the lowest rate
 
 ## Solution2:
 install.packages("rcompanion")
-dat_caliFocus <- filter(us_contagious_diseases, state == "California")
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1950] <- "1950’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1960] <- "1960’s"
-dat_caliFocus$yearBlock[dat_caliFocus$year == 1970] <- "1970’s"
+dat_caliFocus <- filter(us_contagious_diseases, state == "California", 1980 > year & year > 1949)
+dat_caliFocus$yearBlock[1960 > dat_caliFocus$year & dat_caliFocus$year > 1949] <- "1950’s"
+dat_caliFocus$yearBlock[1970 > dat_caliFocus$year & dat_caliFocus$year > 1959] <- "1960’s"
+dat_caliFocus$yearBlock[1980 > dat_caliFocus$year & dat_caliFocus$year > 1969] <- "1970’s"
 C_sqrt = sqrt(dat_caliFocus$count)
 library(rcompanion)
 plotNormalHistogram(C_sqrt)
@@ -53,20 +52,20 @@ plotNormalHistogram(C_sqrt)
 
 ## SOlution1:
 ## create a copy of us_contagious_diseases
-dat_copy <- us_contagious_diseases
+dat_copy <- filter(us_contagious_diseases, 1980 > year & year > 1949)
 ## block all the years besides 1950, 1960, 1970
-dat_copy$yearBlock[dat_copy$year == 1950] <- "1950’s"
-dat_copy$yearBlock[dat_copy$year == 1960] <- "1960’s"
-dat_copy$yearBlock[dat_copy$year == 1970] <- "1970’s"
+dat_copy$yearBlock[1960 > dat_copy$year & dat_copy$year > 1949] <- "1950’s"
+dat_copy$yearBlock[1970 > dat_copy$year & dat_copy$year > 1959] <- "1960’s"
+dat_copy$yearBlock[1980 > dat_copy$year & dat_copy$year > 1969] <- "1970’s"
 ## plot the graph
 ggplot(data = dat_copy) + geom_bar(mapping = aes(x = state,y = count^(1/2), fill = yearBlock), position = "dodge", stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=-0.01))
 ## It shows all states
 
 ## Solution2:
-dat_copy <- us_contagious_diseases
-dat_copy$yearBlock[dat_copy$year == 1950] <- "1950’s"
-dat_copy$yearBlock[dat_copy$year == 1960] <- "1960’s"
-dat_copy$yearBlock[dat_copy$year == 1970] <- "1970’s"
+dat_copy <- filter(us_contagious_diseases, 1980 > year & year > 1949)
+dat_copy$yearBlock[1960 > dat_copy$year & dat_copy$year > 1949] <- "1950’s"
+dat_copy$yearBlock[1970 > dat_copy$year & dat_copy$year > 1959] <- "1960’s"
+dat_copy$yearBlock[1980 > dat_copy$year & dat_copy$year > 1969] <- "1970’s"
 count_sqrt = sqrt(dat_copy$count)
 plotNormalHistogram(count_sqrt)
 
@@ -74,11 +73,11 @@ plotNormalHistogram(count_sqrt)
 
 ## First two steps are extactly the same
 ## create a copy of us_contagious_diseases
-dat_copy <- us_contagious_diseases
+dat_copy <- filter(us_contagious_diseases, 1980 > year & year > 1949)
 ## block all the years besides 1950, 1960, 1970
-dat_copy$yearBlock[dat_copy$year == 1950] <- "1950’s"
-dat_copy$yearBlock[dat_copy$year == 1960] <- "1960’s"
-dat_copy$yearBlock[dat_copy$year == 1970] <- "1970’s"
+dat_copy$yearBlock[1960 > dat_copy$year & dat_copy$year > 1949] <- "1950’s"
+dat_copy$yearBlock[1970 > dat_copy$year & dat_copy$year > 1959] <- "1960’s"
+dat_copy$yearBlock[1980 > dat_copy$year & dat_copy$year > 1969] <- "1970’s"
 ## plot the graph, use geom_tile, set x = state, y = year, fill = rate, add the grey color edge
 ggplot(data = dat_copy) + geom_tile(mapping = aes(x = state, y = year, fill = count^(1/2)),colour = "grey50", position = "dodge", stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=-0.01))
 
